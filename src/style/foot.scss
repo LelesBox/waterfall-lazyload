@@ -1,0 +1,13 @@
+.foot {
+  height: 300px;
+  background: red;
+}
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  visibility: hidden;
+  clear: both;
+  height: 0;
+  width: 0;
+}
