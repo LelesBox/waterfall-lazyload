@@ -14,7 +14,7 @@
 
 `window.onscroll`
 
-```
+```javascript
 window.onscroll=function(){
     console.log("onscroll")
 }
@@ -22,9 +22,9 @@ window.onscroll=function(){
 
 ### 判断是否滚动到底部
 
-用到三个属性，一个是`clientHeight`, 表示视口高度，另一个是`scrollHeight`，表示容器高度，最后一个属性是滚动条的便宜量`window.pageYOffset`。用着三个属性值就可以判断是否滚动到底部。
+用到三个属性，一个是`clientHeight`, 表示视口高度，另一个是`scrollHeight`，表示容器高度，最后一个属性是滚动条的偏移量`window.pageYOffset`。用着三个属性值就可以判断是否滚动到底部。
 
-```
+```javascript
 var BodyClientHeight = document.body.clientHeight
 var BodyScrollHeight = document.body.scrollHeight
 var offset = BodyScrollHeight - BodyClientHeight
@@ -49,7 +49,7 @@ window.onscroll = function () {
 
 判断元素是否在视口内，可以使用`element.getBoundingClientRect()`,返回值为：
 
-```
+```javascript
 {
     bottom: 700,
     height: 100,
@@ -65,7 +65,7 @@ window.onscroll = function () {
 
 所以，存在一个判断一个元素是否在视窗之内的函数如下：
 
-```
+```javascript
 /**
  *判断某个元素是否处于视窗之内的方法
  * @param el 元素
@@ -93,7 +93,7 @@ function isOnViewPort(el, height, offset) {
 
 有了判断是否在视口内的这个基础方法，接下来，我们就可以跟进下面这4个步骤来让处于视口中的元素真正加载其图片。先上代码：
 
-```
+```javascript
   $("[lazy-src]")
     //nodeList转换成数组
         .map(val=> {
@@ -128,5 +128,8 @@ function isOnViewPort(el, height, offset) {
 4.	通过map方法，逐个替换掉对应元素的lazy-src属性为src
 
 刚接触函数式编程不久，但是小试牛刀后感觉用这种方式去写代码，思路更清晰些，一个目的被拆分成一个个步骤。棒！
+
+[完整代码](https://github.com/LelesBox/waterfall-lazyload)
+
 ***DONE*** 
 
